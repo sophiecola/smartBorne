@@ -1,9 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CampagneController!{% endblock %}
+{% block title %}Campagnes{% endblock %}
 
 {% block body %}
 
-<h1>Bienvenue sur la liste des campagnes</h1>
+<div>
+<h1>Liste des campagnes</h1>
 
+<a href="#" class="btn btn-dark">Créer une campagne</a>
+<input type="text" value="rechercher">
+<label for="tri">TRIER PAR</label>
+<select name="tri" id="tri">
+    <option value="DESC">Ordre décroissant</option>
+    <option value="ASC">Ordre croissant</option>
+</select>
+
+<table class="table table-striped mx-5">
+    <thead>
+        <tr>
+            <th scope="col">Identifiant campagne</th>
+            <th scope="col">Client</th>
+            <th scope="col">Date de début</th>
+            <th scope="col">Date de fin</th>
+            <th scope="col">Nombre écrans</th>
+            <th scope="col">Permissions</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1234567890</th>
+            <td>Mamie bigoude</td>
+            <td>19/04/2020</td>
+            <td>19/04/2021</td>
+            <td>4</td>
+            <td>Public</td>
+            <td>trash</td>
+            <td>Détails</td>
+        </tr>
+        <tr>
+            <th scope="row">1234567890</th>
+            <td>Mamie bigoude</td>
+            <td>19/04/2020</td>
+            <td>19/04/2021</td>
+            <td>4</td>
+            <td>Public</td>
+            <td>trash</td>
+            <td>Détails</td>
+        </tr>
+        <tr>
+            <th scope="row">1234567890</th>
+            <td>Mamie bigoude</td>
+            <td>19/04/2020</td>
+            <td>19/04/2021</td>
+            <td>4</td>
+            <td>Public</td>
+            <td>trash</td>
+            <td>Détails</td>
+        </tr>
+    </tbody>
+</table>
+
+
+</div>
 {% endblock %}

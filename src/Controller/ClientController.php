@@ -5,15 +5,15 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CampagneController extends AbstractController
+class ClientController extends AbstractController
 {
     /**
-     * @Route("/campagne", name="campagne_index")
+     * @Route("/client", name="client_index")
      */
     public function index()
     {
-        return $this->render('campagne/index.html.twig', [
-            'controller_name' => 'CampagneController',
+        return $this->render('client/index.html.twig', [
+            'controller_name' => 'ClientController',
         ]);
     }
 }

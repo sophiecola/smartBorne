@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bornes{% endblock %}
+
+{% block body %}
+
+<h1>Liste des bornes</h1>
+
+<a href="#" class="btn btn-dark">Ajouter une borne</a>
+<input type="text" value="rechercher">
+<label for="tri">TRIER PAR</label>
+<select name="tri" id="tri">
+    <option value="DESC">Ordre décroissant</option>
+    <option value="ASC">Ordre croissant</option>
+</select>
+
+<table class="table table-striped mx-5">
+    <thead>
+        <tr>
+            <th scope="col">Numéro de série</th>
+            <th scope="col">ID ecran</th>
+            <th scope="col">Site</th>
+            <th scope="col">Ville</th>
+            <th scope="col">Date d'installation</th>
+            <th scope="col">Publicité en cours</th>
+            <th scope="col">Connexion</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1234567890</th>
+            <td>1234567890</td>
+            <td>Mame</td>
+            <td>Tours</td>
+            <td>30/04/2020</td>
+            <td>5</td>
+            <td>ok</td>
+            <td>Détails</td>
+        </tr>
+        <tr>
+            <th scope="row">1234567890</th>
+            <td>1234567890</td>
+            <td>Mame</td>
+            <td>Tours</td>
+            <td>30/04/2020</td>
+            <td>5</td>
+            <td>ok</td>
+            <td>Détails</td>
+        </tr>
+        <tr>
+            <th scope="row">1234567890</th>
+            <td>1234567890</td>
+            <td>Mame</td>
+            <td>Tours</td>
+            <td>30/04/2020</td>
+            <td>5</td>
+            <td>ok</td>
+            <td>Détails</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

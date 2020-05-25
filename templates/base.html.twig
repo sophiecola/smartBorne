@@ -2,11 +2,74 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
+
         <title>{% block title %}SmartBorne{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <div class="row">
+        <div class="col-2">
+            <nav id="sidebar" class="sidebar pl-3">
+                <div class="sidebar-header">
+                    <h1 class="h4 pt-2">ADMINISTRATEUR</h1>
+                </div>
+        
+                <ul class="list-unstyled">
+                    <li class="active">
+                        <a href="{{ path('borne_index') }}">Bornes</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('campagne_index') }}">Campagnes</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('client_index') }}">Clients</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content col-10">
+             <nav class="navbar navbar-expand-lg navbar-light"> 
+                <a id="sidebarCollapse">
+                    <i class="fas fa-align-left"></i>
+                    <span>Réduire le menu</span>
+                </a>
+                <img src="#" alt="logo">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" role="button">
+                            <i class="fas fa-user"></i><span class="p-1">{{ app.user.prenom }} {{ app.user.nom }}</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-info"
+                            aria-labelledby="navbarDropdownProfile">
+                            <a class="dropdown-item" href="{{ path('connexion_logout') }}"><i class="fas fa-sign-out-alt"></i><span class="p-1">Déconnexion</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </nav> 
+
         {% block body %}{% endblock %}
+        </div>{# fermeture div content #}
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            $('#sidebarCollapse').click(function () {
+                $('#sidebar').toggleClass('active');
+                $('.wraper').toggleClass('col-2');
+                $('.content').toggleClass('col-10').toggleClass('col-12');
+            });
+         });
+        </script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
