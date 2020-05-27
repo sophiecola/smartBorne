@@ -1,8 +1,14 @@
-{% block title %}Connexion{% endblock %}
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+       <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300">
+
+        <link rel="stylesheet" href="/css/style.css">
+
+{# {% block title %}Connexion{% endblock %} #}
 
 {% block body %}
 
-<div class="container">
+{# <div class="container">
     <div class="row">
         <div class="col-md-3">&nbsp;</div>
         <div class="col-md-6">
@@ -22,6 +28,22 @@
             </form>
         </div>
     </div>
+</div> #}
+
+
+
+<div class="login-page">
+  <div class="form">
+    <img class="m-2"
+        src="{{ asset('images/logoSmartBorne.jpg') }}"
+        width="100" height="100" alt="Logo Smart Borne">
+        <form action="{{ path('connexion_login') }}" method="post" class="login-form">
+            <input type="text" name="_username" id="username" placeholder="username"/>
+            <input type="password" name="_password" id="password" class="" placeholder="password" required/>
+            <button type="submit" >Connexion</button>
+            <a href="#">Mot de passe oublié</a>
+        </form>
+  </div>
 </div>
 
 {% endblock %}
