@@ -64,6 +64,21 @@ class Campagne
      */
     private $borneCampagnes;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $permission;
+
+    /**
+     * @ORM\Column(type="time")
+     */
+    private $diffusionDebut;
+
+    /**
+     * @ORM\Column(type="time")
+     */
+    private $diffusionFin;
+
     public function __construct()
     {
         $this->magasinCampagnes = new ArrayCollection();
@@ -99,24 +114,24 @@ class Campagne
         return $this;
     }
 
-    public function getMedia(): ?string
+    public function getMedia()
     {
         return $this->media;
     }
 
-    public function setMedia(string $media): self
+    public function setMedia($media): self
     {
         $this->media = $media;
 
         return $this;
     }
 
-    public function getRecurrence(): ?string
+    public function getRecurrence()
     {
         return $this->recurrence;
     }
 
-    public function setRecurrence(?string $recurrence): self
+    public function setRecurrence($recurrence): self
     {
         $this->recurrence = $recurrence;
 
@@ -217,6 +232,42 @@ class Campagne
                 $borneCampagne->setUuidCampagne(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPermission(): ?string
+    {
+        return $this->permission;
+    }
+
+    public function setPermission(string $permission): self
+    {
+        $this->permission = $permission;
+
+        return $this;
+    }
+
+    public function getDiffusionDebut(): ?\DateTimeInterface
+    {
+        return $this->diffusionDebut;
+    }
+
+    public function setDiffusionDebut(\DateTimeInterface $diffusionDebut): self
+    {
+        $this->diffusionDebut = $diffusionDebut;
+
+        return $this;
+    }
+
+    public function getDiffusionFin(): ?\DateTimeInterface
+    {
+        return $this->diffusionFin;
+    }
+
+    public function setDiffusionFin(\DateTimeInterface $diffusionFin): self
+    {
+        $this->diffusionFin = $diffusionFin;
 
         return $this;
     }

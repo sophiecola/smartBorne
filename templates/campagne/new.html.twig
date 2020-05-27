@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création Campagne{% endblock %}
+
+{% block body %}
+
+        <h1>Créer une campagne</h1>
+
+<div class="container">
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col">
+                    {{ form_label(form.dateDebut, 'Date de début') }}
+                    {{ form_widget(form.dateDebut) }}
+                </div>
+                <div class="col"> 
+                    {{ form_label(form.dateFin, 'Date de fin') }}
+                    {{ form_widget(form.dateFin) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form_label(form.dureeAffichage, "Durée d'Affichage") }}
+                    {{ form_widget(form.dureeAffichage) }}
+                </div>
+                <div class="col-6">
+                    {{ form_label(form.diffusionDebut, "Plage de diffusion spécifique") }}
+                    <div class="row">
+                            {{ form_widget(form.diffusionDebut) }}
+                            {{ form_widget(form.diffusionFin) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ form_label(form.recurrence, 'Récurrence personnalisée') }}
+                </div>
+                <div class="col-12">
+                    {% for recurrenceCheckBox in form.recurrence %}
+                        {{ form_widget(recurrenceCheckBox) }}
+                        {{ form_label(recurrenceCheckBox) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12">
+                    {{ form_label(form.media, 'Fichier multimédia') }}
+                </div>
+                <div class="col-12">
+                    {{ form_widget(form.media) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form_label(form.permission, 'Permission') }}
+                    {{ form_widget(form.permission)}}
+                </div>
+                <div class="col">
+                    {{ form_label(form.couleur, 'Couleur sur le planning') }}
+                    {{ form_widget(form.couleur) }}
+                </div>
+                <div class="col-12">
+                        {{ form_label(form.details, 'Détails supplémentaires') }}
+                        {{ form_widget(form.details) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <button type="submit" class="btn btn-dark m-2">Enregistrer</button>
+    <a href="{{ path('campagne_index') }}" class="btn btn-dark m-2">Abandonner</a>
+{{ form_end(form) }}
+</div>
+
+{% endblock %}

@@ -7,7 +7,7 @@
 <div>
 <h1>Liste des campagnes</h1>
 
-<a href="#" class="btn btn-dark">Créer une campagne</a>
+<a href="{{ path('campagne_new') }}" class="btn btn-dark">Créer une campagne</a>
 <input type="text" value="rechercher">
 <label for="tri">TRIER PAR</label>
 <select name="tri" id="tri">
@@ -29,36 +29,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1234567890</th>
-            <td>Mamie bigoude</td>
-            <td>19/04/2020</td>
-            <td>19/04/2021</td>
-            <td>4</td>
-            <td>Public</td>
-            <td>trash</td>
-            <td>Détails</td>
-        </tr>
-        <tr>
-            <th scope="row">1234567890</th>
-            <td>Mamie bigoude</td>
-            <td>19/04/2020</td>
-            <td>19/04/2021</td>
-            <td>4</td>
-            <td>Public</td>
-            <td>trash</td>
-            <td>Détails</td>
-        </tr>
-        <tr>
-            <th scope="row">1234567890</th>
-            <td>Mamie bigoude</td>
-            <td>19/04/2020</td>
-            <td>19/04/2021</td>
-            <td>4</td>
-            <td>Public</td>
-            <td>trash</td>
-            <td>Détails</td>
-        </tr>
+        {% for campagne in campagnes %}
+            <tr>
+                <th scope="row">1234567890</th>
+                <td>#</td>
+                <td>{{ campagne.dateDebut|date("d/m/Y")}}</td>
+                <td>{{ campagne.dateFin|date("d/m/Y")}}</td>
+                <td>#</td>
+                <td>{{ campagne.permission }}</td>
+                <td>trash</td>
+                <td>Détails</td>
+            </tr>
+        {% endfor %}
+
     </tbody>
 </table>
 
