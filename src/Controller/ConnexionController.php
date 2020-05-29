@@ -8,10 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class ConnexionController extends AbstractController
 {
     /**
-     * @Route("/login", name="connexion_login")
+     * @Route("/", name="connexion_login")
      */
     public function login()
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('borne_index');
+        }
+
         return $this->render('connexion/login.html.twig');
     }
 

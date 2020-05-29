@@ -14,37 +14,16 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class MagasinCampagneRepository extends ServiceEntityRepository
 {
+    const URL = "http://lucaslelaidier.fr:7200";
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, MagasinCampagne::class);
     }
 
-    // /**
-    //  * @return MagasinCampagne[] Returns an array of MagasinCampagne objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+    public function getMagasins() {
+        $json = file_get_contents(self::URL . "/magasin/magasins");
+        $parse = json_decode($json);
+        return $parse;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?MagasinCampagne
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Campagne;
 use App\Form\CampagneType;
+use App\Entity\MagasinCampagne;
 use App\Repository\CampagneRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\MagasinCampagneRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -17,8 +20,8 @@ class CampagneController extends AbstractController
      */
     public function index(CampagneRepository $campagneRepository)
     {
-        $campagnes = $campagneRepository->findAll();
-
+        $campagnes = $campagneRepository->findAllWithMagasin();
+    
         return $this->render('campagne/index.html.twig', [
             'campagnes' => $campagnes,
         ]);
@@ -27,12 +30,15 @@ class CampagneController extends AbstractController
     /**
      * @Route("/campagne/new", name="campagne_new")
      */
-    public function create(Request $request, EntityManagerInterface $manager) 
+    public function create(Request $request, EntityManagerInterface $manager, MagasinCampagneRepository $magasinCampagneRepository) 
     {
         $campagne = new Campagne();
         $form = $this->createForm(CampagneType::class,$campagne);
+
+        $clients = $magasinCampagneRepository->getMagasins();
         
         $form->handleRequest($request);
+    
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $campagne->getMedia();
             $fileName = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
@@ -45,15 +51,36 @@ class CampagneController extends AbstractController
                 $recurrenceToString = $recurrenceToString . $value . ';'; 
             }
             $campagne->setRecurrence($recurrenceToString);
-
             $manager->persist($campagne);
+            $manager->flush();
+
+            $magasinCampagne = new MagasinCampagne();
+            $id = explode("/", $request->get('clients'))[0];
+            $name = explode("/", $request->get('clients'))[1];
+            $magasinCampagne->setUuidMagasin($id);
+            $magasinCampagne->setMagasinName($name);
+            $magasinCampagne->setUuidCampagne($campagne);
+            $manager->persist($magasinCampagne);
             $manager->flush();
 
             return $this->redirectToRoute('campagne_index');
         }
 
         return $this->render('campagne/new.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'clients' => $clients
         ]);
+    }
+
+    /**
+     * @Route("/campagne/delete/{id}", name="campagne_delete")
+     */
+    public function delete(Campagne $campagne, ObjectManager $manager) 
+    {
+        $manager->remove($campagne);
+        $manager->flush();
+
+        return $this->redirectToRoute('campagne_index');
+
     }
 }

@@ -29,15 +29,18 @@
         </tr>
     </thead>
     <tbody>
-        {% for campagne in campagnes %}
+        {% for item in campagnes %}
+        {% set campagne = item.campagne %}
             <tr>
                 <th scope="row">1234567890</th>
-                <td>#</td>
+                <td>{{ item.magasinName }}</td>
                 <td>{{ campagne.dateDebut|date("d/m/Y")}}</td>
                 <td>{{ campagne.dateFin|date("d/m/Y")}}</td>
-                <td>#</td>
+                <td>{{ campagne.CountBorne }}</td>
                 <td>{{ campagne.permission }}</td>
-                <td>trash</td>
+                <td>
+                 
+                    {# <a href="{{ path('campagne_delete', {'id': campagne.id}) }}">trash</a> #}
                 <td>Détails</td>
             </tr>
         {% endfor %}

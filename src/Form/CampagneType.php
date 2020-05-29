@@ -22,8 +22,8 @@ class CampagneType extends AbstractType
                 'choices' => [
                     'D' => 'dimanche',
                     'L' => 'lundi',
-                    'M' => 'mardi',
-                    'M' => 'mercredi',
+                    'Ma' => 'mardi',
+                    'Me' => 'mercredi',
                     'J' => 'jeudi',
                     'V' => 'vendredi',
                     'S' => 'samedi'

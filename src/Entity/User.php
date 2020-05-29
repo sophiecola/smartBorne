@@ -133,8 +133,9 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRoles() {
-        return ['ROLE_USER'];
+    public function getRoles() 
+    {
+        return [$this->getRole()];
     }
 
     public function getSalt() {}

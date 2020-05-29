@@ -14,37 +14,16 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class BorneCampagneRepository extends ServiceEntityRepository
 {
+    const URL = "http://lucaslelaidier.fr:7200";
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, BorneCampagne::class);
     }
 
-    // /**
-    //  * @return BorneCampagne[] Returns an array of BorneCampagne objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+    public function getBornes() {
+        $json = file_get_contents(self::URL . "/borne/bornes");
+        $parse = json_decode($json);
+        return $parse;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?BorneCampagne
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -11,6 +11,13 @@
     <div class="row">
         <div class="col-6">
             <div class="row">
+                <select name="clients" id="clients">
+                    {% for client in clients %}
+                        <option value="{{ client.mag_uuid }}/{{ client.mag_nom}}">{{ client.mag_nom }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="row">
                 <div class="col">
                     {{ form_label(form.dateDebut, 'Date de début') }}
                     {{ form_widget(form.dateDebut) }}

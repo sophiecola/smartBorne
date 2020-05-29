@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Repository\BorneCampagneRepository;
 use App\Repository\CampagneRepository;
+use App\Repository\MagasinCampagneRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -270,5 +272,10 @@ class Campagne
         $this->diffusionFin = $diffusionFin;
 
         return $this;
+    }
+
+    public function getCountBorne() {
+        $count = count($this->borneCampagnes);
+        return $count;
     }
 }
