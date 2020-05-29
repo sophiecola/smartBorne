@@ -13,7 +13,7 @@ class BorneController extends AbstractController
     public function index()
     {
         return $this->render('borne/index.html.twig', [
-            'controller_name' => 'BorneController',
+            
         ]);
     }
 }

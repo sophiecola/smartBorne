@@ -115,6 +115,15 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
+   .form-create select textarea {
+    font-family: "Roboto", sans-serif;
+    background: #f2f2f2;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+
   .form input {
     font-family: "Roboto", sans-serif;
     /* outline: 0; */
@@ -123,9 +132,9 @@ body {
     border: 0;
     border-radius: 10px;
     margin: 0 0 15px;
-    padding: 15px;
+    padding: 3px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 5px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
   .form button {

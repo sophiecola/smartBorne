@@ -1,20 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Utilisateurs{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div>
+<h1>Gérer les utilisateurs</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/smartborne/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/smartborne/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
+<a href="#" class="btn btn-dark">Créer un utilisateur</a>
+<input type="text" value="rechercher">
+
+<table class="table table-striped mx-5">
+    <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Restriction d'accés</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <th scope="row">{{ user.nom }}</th>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    {% if user.role is same as ('ROLE_ADMIN') %}
+                        Admin
+                    {% else %}
+                        Lecteur
+                    {% endif %}
+                </td>
+                <td>trash</td>
+                <td>Détails</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
 </div>
 {% endblock %}

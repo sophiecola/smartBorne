@@ -5,7 +5,45 @@
 {% block body %}
 
 <div>
-    <h1>Liste des campagnes</h1>
+<h1>Liste des campagnes</h1>
+
+<a href="{{ path('campagne_new') }}" class="btn btn-dark">Créer une campagne</a>
+<input type="text" value="rechercher">
+<label for="tri">TRIER PAR</label>
+<select name="tri" id="tri">
+    <option value="DESC">Ordre décroissant</option>
+    <option value="ASC">Ordre croissant</option>
+</select>
+
+<table class="table table-striped mx-5">
+    <thead>
+        <tr>
+            <th scope="col">Identifiant campagne</th>
+            <th scope="col">Client</th>
+            <th scope="col">Date de début</th>
+            <th scope="col">Date de fin</th>
+            <th scope="col">Nombre écrans</th>
+            <th scope="col">Permissions</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campagne in campagnes %}
+            <tr>
+                <th scope="row">1234567890</th>
+                <td>#</td>
+                <td>{{ campagne.dateDebut|date("d/m/Y")}}</td>
+                <td>{{ campagne.dateFin|date("d/m/Y")}}</td>
+                <td>#</td>
+                <td>{{ campagne.permission }}</td>
+                <td>trash</td>
+                <td>Détails</td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
 
     <a href="#" class="btn btn-dark">Créer une campagne</a>
     <input type="text" value="rechercher">
