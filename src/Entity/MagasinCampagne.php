@@ -23,6 +23,11 @@ class MagasinCampagne
      */
     private $uuidCampagne;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $magasinName;
+
     public function getUuidMagasin(): ?string
     {
         return $this->uuidMagasin;
@@ -43,6 +48,18 @@ class MagasinCampagne
     public function setUuidCampagne(?Campagne $uuidCampagne): self
     {
         $this->uuidCampagne = $uuidCampagne;
+
+        return $this;
+    }
+
+    public function getMagasinName(): ?string
+    {
+        return $this->magasinName;
+    }
+
+    public function setMagasinName(string $magasinName): self
+    {
+        $this->magasinName = $magasinName;
 
         return $this;
     }

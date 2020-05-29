@@ -19,32 +19,16 @@ class CampagneRepository extends ServiceEntityRepository
         parent::__construct($registry, Campagne::class);
     }
 
-    // /**
-    //  * @return Campagne[] Returns an array of Campagne objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllWithMagasin()
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->select('c as campagne')
+            ->join('c.magasinCampagnes', 'mc')
+            ->addSelect('mc.magasinName')
+            ->orderBy('c.dateFin')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Campagne
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

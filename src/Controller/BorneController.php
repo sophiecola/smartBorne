@@ -2,18 +2,21 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\BorneCampagneRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BorneController extends AbstractController
 {
     /**
-     * @Route("/", name="borne_index")
+     * @Route("/borne", name="borne_index")
      */
-    public function index()
+    public function index(BorneCampagneRepository $borneCampagneRepository)
     {
+        // $bornes = $borneCampagneRepository->getBornes();
+
         return $this->render('borne/index.html.twig', [
-            
+           
         ]);
     }
 }
