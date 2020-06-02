@@ -77,7 +77,7 @@
 }
 
 .custom-color {
-  background: #43425d;
+  background: #43425d !important;
 }
 
 /*Start login style*/

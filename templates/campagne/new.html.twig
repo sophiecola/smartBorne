@@ -111,7 +111,7 @@
                     {{ form_widget(form.dureeAffichage) }}
                 </div>
                 <div class="form-group col-md-4">
-                     {# {{ form_label(form.diffusionDebut, "Plage de diffusion spécifique") }}  #}
+                     {{ form_label(form.diffusionDebut, "Plage de diffusion spécifique") }} 
                     <div class="form-row">
                             {{ form_row(form.diffusionDebut) }}
                             {{ form_row(form.diffusionFin) }}
@@ -136,7 +136,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     {{ form_label(form.couleur, 'Couleur sur le planning') }}
-                    {{ form_widget(form.couleur, {'attr':{'class':'form-control'}}) }}
+                    {{ form_widget(form.couleur) }}
                 </div>
                 <div class="form-group col-md-6">
                      {{ form_label(form.details, 'Détails supplémentaires') }}

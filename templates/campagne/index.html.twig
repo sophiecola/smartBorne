@@ -5,15 +5,14 @@
 {% block body %}
 
 <div>
-<h1>Liste des campagnes</h1>
-
-<a href="{{ path('campagne_new') }}" class="btn btn-dark">Créer une campagne</a>
-<input type="text" value="rechercher">
-<label for="tri">TRIER PAR</label>
-<select name="tri" id="tri">
-    <option value="DESC">Ordre décroissant</option>
-    <option value="ASC">Ordre croissant</option>
-</select>
+    <h1>Liste des campagnes</h1>
+        <a href="{{ path('campagne_new') }}" class="btn btn-dark custom-color">Créer une campagne</a>
+        <input type="text" value="rechercher">
+        <label for="tri">TRIER PAR</label>
+        <select name="tri" id="tri">
+            <option value="DESC">Ordre décroissant</option>
+            <option value="ASC">Ordre croissant</option>
+        </select>
 
 <table class="table table-striped mx-5">
     <thead>
@@ -40,7 +39,7 @@
                 <td>{{ campagne.permission }}</td>
                 <td>
                  
-                    {# <a href="{{ path('campagne_delete', {'id': campagne.id}) }}">trash</a> #}
+                    <a href="{{ path('campagne_delete', {'id': campagne.id}) }}">trash</a>
                 <td>Détails</td>
             </tr>
         {% endfor %}
@@ -48,13 +47,6 @@
     </tbody>
 </table>
 
-    <a href="#" class="btn btn-dark">Créer une campagne</a>
-    <input type="text" value="rechercher">
-    <label for="tri">TRIER PAR</label>
-    <select name="tri" id="tri">
-        <option value="DESC">Ordre décroissant</option>
-        <option value="ASC">Ordre croissant</option>
-    </select>
 
     <table class="table table-striped">
         <thead>

@@ -5,42 +5,40 @@
 {% block body %}
 
 <div>
-<h1>Gérer les utilisateurs</h1>
+    <h1>Gérer les utilisateurs</h1>
 
-<a href="#" class="btn btn-dark">Créer un utilisateur</a>
-<input type="text" value="rechercher">
+    <a href="#" class="btn btn-dark custom-color">Créer un utilisateur</a>
+    <input type="text" value="rechercher">
 
-<table class="table table-striped mx-5">
-    <thead>
-        <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Restriction d'accés</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in users %}
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <th scope="row">{{ user.nom }}</th>
-                <td>{{ user.prenom }}</td>
-                <td>{{ user.email }}</td>
-                <td>
-                    {% if user.role is same as ('ROLE_ADMIN') %}
-                        Admin
-                    {% else %}
-                        Lecteur
-                    {% endif %}
-                </td>
-                <td>trash</td>
-                <td>Détails</td>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Restriction d'accés</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <th scope="row">{{ user.nom }}</th>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        {% if user.role is same as ('ROLE_ADMIN') %}
+                            Admin
+                        {% else %}
+                            Lecteur
+                        {% endif %}
+                    </td>
+                    <td>trash</td>
+                    <td>Détails</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
