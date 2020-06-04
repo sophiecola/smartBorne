@@ -4,11 +4,12 @@ namespace App\Form;
 
 use App\Entity\Campagne;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CampagneType extends AbstractType
 {
@@ -33,7 +34,7 @@ class CampagneType extends AbstractType
             ])
             ->add('diffusionDebut')
             ->add('diffusionFin')
-            ->add('couleur')
+            ->add('couleur', ColorType::class)
             ->add('dureeAffichage')
             ->add('details')
             ->add('permission', ChoiceType::class, [

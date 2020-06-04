@@ -7,8 +7,44 @@
 <div>
     <h1>Gérer les utilisateurs</h1>
 
-    <a href="{{ path('user_new') }}" class="btn btn-dark custom-color">Créer un utilisateur</a>
-    <input type="text" value="rechercher">
+
+<a class="btn btn-outline-light custom-color" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Créer un utilisateur</a>
+<div class="collapse" id="collapseForm">
+    <div class="container my-3 form-create">
+       
+          {{ form_start(form) }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">{{ form_row(form.nom, {'attr':{'class':'form-control'}}) }}</div>
+                    <div class="form-group col-md-6">{{ form_row(form.prenom, {'attr':{'class':'form-control'}}) }}</div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">{{ form_row(form.username, {'attr':{'class':'form-control'}}) }}</div>
+                    <div class="form-group col-md-8">{{ form_row(form.email, {'attr':{'class':'form-control'}}) }}</div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">{{ form_row(form.password, {'attr':{'class':'form-control'}}) }}</div>
+                    <div class="form-group col-md-6">{{ form_row(form.role, {'attr':{'class':'form-control'}}) }}</div>
+                </div>
+
+                <div class="form-group">{{ form_row(form.detail, {'attr':{'class':'form-control'}}) }}</div>           
+                <div class="form-row d-flex justify-content-end">
+                    <div class="form-group col-md-4">{{ form_row(form.avatar, {'attr':{'class':'form-control'}}) }}</div>
+                    <div class="dropzone">
+                      <img src="{{ asset('images/upload.svg') }}" class="upload-icon" alt="upload" />
+                      <input type="file" class="upload-input" />
+                    </div>
+                </div>
+                
+                  <button type="submit" class="btn btn-outline-light custom-color">Enregistrer</button>
+          {{ form_end(form) }}
+    </div>
+</div>
+
+<input type="text" value="rechercher">
+
+   
 
     <table class="table table-striped">
         <thead>

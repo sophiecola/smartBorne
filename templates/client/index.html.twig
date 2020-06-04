@@ -3,39 +3,25 @@
 {% block title %}Clients{% endblock %}
 
 {% block body %}
-<div>
-    <h1>Clients</h1>
 
-    <a href="#" class="btn btn-dark custom-color">Ajouter un client</a>
-    <input type="text" value="rechercher">
-    <label for="tri">TRIER PAR</label>
-    <select name="tri" id="tri">
-        <option value="DESC">Ordre décroissant</option>
-        <option value="ASC">Ordre croissant</option>
-    </select>
+<h1>Clients</h1>
 
-    {# <div class="container">
+<a class="btn btn-dark custom-color" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Ajouter un client</a>
+<div class="collapse" id="collapseForm">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+</div>
 
-        {% for client in clients %}
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img class="card-img-top" src="#" alt="image de client">
-                    <img class="card-img-top" src="#" alt="détail">
-                    <h5 class="card-title">{{ client.mag_nom }}</h5>
-                    <p class="card-text">Référent : Prénom Nom</p>
-                    <div class="row">
-                        <div class="col">{{ client.mag_telephone_referent }}</div>
-                        <div class="col">{{ client.mag_mail_referent }}</div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <p>Date-Début - Date-Fin</p>
-                    <p>nb écran</p>
-                    <p>nb campagne</p>
-                </div>
-            </div>
-        {% endfor %}
-    </div> #}
+
+<input type="text" value="rechercher">
+<label for="tri">TRIER PAR</label>
+<select name="tri" id="tri">
+    <option value="DESC">Ordre décroissant</option>
+    <option value="ASC">Ordre croissant</option>
+</select>
+
+<div class="container">
 
      <div class="container d-flex ">
 
