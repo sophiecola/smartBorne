@@ -5,49 +5,76 @@
 {% block body %}
 
 <div>
-<h1>Gérer les utilisateurs</h1>
+    <h1>Gérer les utilisateurs</h1>
 
-<a class="btn btn-dark" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Créer un utilisateur</a>
+
+<a class="btn btn-outline-light custom-color" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Créer un utilisateur</a>
 <div class="collapse" id="collapseForm">
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit" class="btn btn-dark">Enregistrer</button>
-    {{ form_end(form) }}
+    <div class="container my-3 form-create">
+       
+          {{ form_start(form) }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">{{ form_row(form.nom, {'attr':{'class':'form-control'}}) }}</div>
+                    <div class="form-group col-md-6">{{ form_row(form.prenom, {'attr':{'class':'form-control'}}) }}</div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">{{ form_row(form.username, {'attr':{'class':'form-control'}}) }}</div>
+                    <div class="form-group col-md-8">{{ form_row(form.email, {'attr':{'class':'form-control'}}) }}</div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">{{ form_row(form.password, {'attr':{'class':'form-control'}}) }}</div>
+                    <div class="form-group col-md-6">{{ form_row(form.role, {'attr':{'class':'form-control'}}) }}</div>
+                </div>
+
+                <div class="form-group">{{ form_row(form.detail, {'attr':{'class':'form-control'}}) }}</div>           
+                <div class="form-row d-flex justify-content-end">
+                    <div class="form-group col-md-4">{{ form_row(form.avatar, {'attr':{'class':'form-control'}}) }}</div>
+                    <div class="dropzone">
+                      <img src="{{ asset('images/upload.svg') }}" class="upload-icon" alt="upload" />
+                      <input type="file" class="upload-input" />
+                    </div>
+                </div>
+                
+                  <button type="submit" class="btn btn-outline-light custom-color">Enregistrer</button>
+          {{ form_end(form) }}
+    </div>
 </div>
 
 <input type="text" value="rechercher">
 
-<table class="table table-striped mx-5">
-    <thead>
-        <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Restriction d'accés</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in users %}
+   
+
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <th scope="row">{{ user.nom }}</th>
-                <td>{{ user.prenom }}</td>
-                <td>{{ user.email }}</td>
-                <td>
-                    {% if user.role is same as ('ROLE_ADMIN') %}
-                        Admin
-                    {% else %}
-                        Lecteur
-                    {% endif %}
-                </td>
-                <td>trash</td>
-                <td>Détails</td>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Restriction d'accés</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <th scope="row">{{ user.nom }}</th>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        {% if user.role is same as ('ROLE_ADMIN') %}
+                            Admin
+                        {% else %}
+                            Lecteur
+                        {% endif %}
+                    </td>
+                    <td>trash</td>
+                    <td>Détails</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
