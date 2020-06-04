@@ -6,7 +6,13 @@
 
 <h1>Liste des bornes</h1>
 
-<a href="#" class="btn btn-dark">Ajouter une borne</a>
+<a class="btn btn-dark" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Ajouter une borne</a>
+<div class="collapse" id="collapseForm">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+</div>
+
 <input type="text" value="rechercher">
 <label for="tri">TRIER PAR</label>
 <select name="tri" id="tri">
@@ -37,7 +43,7 @@
             <td>30/04/2020</td>
             <td>5</td>
             <td>ok</td>
-            <td>Détails</td>
+            <td><a href="#">Détails</a></td>
         </tr>
 
     </tbody>

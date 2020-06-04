@@ -49,6 +49,9 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-info"
                             aria-labelledby="navbarDropdownProfile">
                             <a class="dropdown-item" href="{{ path('connexion_logout') }}"><i class="fas fa-sign-out-alt"></i><span class="p-1">Déconnexion</span></a>
+                            {% if app.user.role is same as('ROLE_ADMIN') %}
+                                <a class="dropdown-item" href="{{ path('user_index') }}"><i class="fas fa-sign-out-alt"></i><span class="p-1">Gérer les utilisateurs</span></a>
+                            {% endif %}
                         </div>
                     </li>
                 </ul>

@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
+use App\Form\ClientType;
 use App\Repository\MagasinCampagneRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ClientController extends AbstractController
 {
@@ -16,8 +17,11 @@ class ClientController extends AbstractController
 
         $clients = $magasinCampagneRepository->getMagasins();
 
+        $form = $this->createForm(ClientType::class);
+
         return $this->render('client/index.html.twig', [
             'clients' => $clients,
+            'form' => $form->createView()
         ]);
     }
 }

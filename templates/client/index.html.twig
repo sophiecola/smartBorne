@@ -6,7 +6,14 @@
 
 <h1>Clients</h1>
 
-<a href="#" class="btn btn-dark">Ajouter un client</a>
+<a class="btn btn-dark" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Ajouter un client</a>
+<div class="collapse" id="collapseForm">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+</div>
+
+
 <input type="text" value="rechercher">
 <label for="tri">TRIER PAR</label>
 <select name="tri" id="tri">

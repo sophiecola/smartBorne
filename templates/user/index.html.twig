@@ -7,7 +7,14 @@
 <div>
 <h1>Gérer les utilisateurs</h1>
 
-<a href="#" class="btn btn-dark">Créer un utilisateur</a>
+<a class="btn btn-dark" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Créer un utilisateur</a>
+<div class="collapse" id="collapseForm">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-dark">Enregistrer</button>
+    {{ form_end(form) }}
+</div>
+
 <input type="text" value="rechercher">
 
 <table class="table table-striped mx-5">

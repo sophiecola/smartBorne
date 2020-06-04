@@ -16,38 +16,29 @@ class UserController extends AbstractController
     /**
      * @Route("/user", name="user_index")
      */
-    public function index(UserRepository $userRepository)
+    public function index(UserRepository $userRepository, Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
         $users = $userRepository->findAll();
 
+        $user = new User();
+
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $password = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+
+            $manager->persist($user);
+            $manager->flush();
+
+            return $this->redirectToRoute('user_index');
+        }
+
         return $this->render('user/index.html.twig', [
             'users' => $users,
+            'form' => $form->createView()
         ]);
     }
-
-    /**
-     * @Route("/user/new", name="user_new")
-     */
-        public function new(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
-        {
-            $user = new User();
-
-            $form = $this->createForm(UserType::class, $user);
-
-            $form->handleRequest($request);
-
-            if($form->isSubmitted() && $form->isValid()) {
-                $password = $encoder->encodePassword($user, $user->getPassword());
-                $user->setPassword($password);
-
-                $manager->persist($user);
-                $manager->flush();
-
-                return $this->redirectToRoute('user_index');
-            }
-
-            return $this->render('user/new.html.twig', [
-                'form' => $form->createView()
-            ]);
-        }
+ 
 }
