@@ -85,114 +85,113 @@
                         #}
                  
                     
+                        {{ dump() }}
+                    
                  
                    
 <div class="container border form-create">
-<h3>Créer une campagne</h3>
-{{ form_start(form) }}
-            <div class="form-row ">
-                <div class="form-group col-md-4">
-                    <label for="clients">Client</label>
-                    <div class="d-flex">
-                        <select name="clients" id="clients" class="form-control">
-                            {% for client in clients %}
-                                <option  value="{{ client.mag_uuid }}/{{ client.mag_nom}}">{{ client.mag_nom }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-       
-                <div class="form-group col-md-4">
-                    {{ form_label(form.dateDebut, 'Date de début') }}
-                    <div class="d-flex">
-                        {{ form_widget(form.dateDebut.day, {'attr':{'class':'form-control'}}) }}
-                        {{ form_widget(form.dateDebut.month, {'attr':{'class':'form-control'}}) }}
-                        {{ form_widget(form.dateDebut.year, {'attr':{'class':'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="form-group col-md-4">
-                    {{ form_label(form.dateFin, 'Date de fin') }}
-                    <div class="d-flex">
-                        {{ form_widget(form.dateFin.day, {'attr':{'class':'form-control'}}) }}
-                        {{ form_widget(form.dateFin.month, {'attr':{'class':'form-control'}}) }}
-                        {{ form_widget(form.dateFin.year, {'attr':{'class':'form-control'}}) }}
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="form-row ">
-
-                <div class="form-group col-md-5">
-
-                    {{ form_label(form.diffusionDebut, "Plage de diffusion") }}
-                    <div class="d-flex">
-                    {# {{ form_label(form.diffusionDebut, 'Début') }} #}
-                        {{ form_widget(form.diffusionDebut.hour, {'attr':{'class':'form-control'}}) }}
-                        {{ form_widget(form.diffusionDebut.minute, {'attr':{'class':'form-control'}}) }}
-                    {# {{ form_label(form.diffusionFin, 'Fin') }} #}
-                        {{ form_widget(form.diffusionFin.hour, {'attr':{'class':'form-control'}}) }}   
-                        {{ form_widget(form.diffusionFin.minute, {'attr':{'class':'form-control'}}) }}     
-                    </div>
-                </div>    
-
-                <div class="form-group col-md-3">
-                    {{ form_label(form.dureeAffichage, "Durée d'Affichage") }}
-                    <div class="d-flex">
-                        {{ form_widget(form.dureeAffichage.hour, {'attr':{'class':'form-control'}}) }}
-                        {{ form_widget(form.dureeAffichage.minute, {'attr':{'class':'form-control'}}) }}
-                    </div>
-                </div>
-            
-
-                <div class="form-group col-md-4">
-                    {{ form_label(form.recurrence, 'Récurrence personnalisée') }}</br>                                      
-                    {% for recurrenceCheckBox in form.recurrence %}
-                        <div class="form-check form-check-inline">
-                            {{ form_widget(recurrenceCheckBox, {'attr':{'class':'form-check-input'}}) }}
-                            {{ form_label(recurrenceCheckBox) }}
+    <h3>Créer une campagne</h3>
+    {{ form_start(form) }}
+                <div class="form-row ">
+                    <div class="form-group col-md-4">
+                        <label for="clients">Client</label>
+                        <div class="d-flex">
+                            <select name="clients" id="clients" class="form-control">
+                                {% for client in clients %}
+                                    <option  value="{{ client.mag_uuid }}/{{ client.mag_nom}}">{{ client.mag_nom }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
-                    {% endfor %} 
-                </div>                  
-            </div>
-
-            
-            <div class="form-row">
-
-                <div class="form-group col-md-4">                
-                        {{ form_label(form.permission, 'Permission') }}
-                    <div class="d-flex">
-                        {{ form_widget(form.permission, {'attr':{'class':'form-control'}})}}
                     </div>
+        
+                    <div class="form-group col-md-4">
+                        {{ form_label(form.dateDebut, 'Date de début') }}
+                        <div class="d-flex">
+                            {{ form_widget(form.dateDebut.day, {'attr':{'class':'form-control'}}) }}
+                            {{ form_widget(form.dateDebut.month, {'attr':{'class':'form-control'}}) }}
+                            {{ form_widget(form.dateDebut.year, {'attr':{'class':'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form_label(form.dateFin, 'Date de fin') }}
+                        <div class="d-flex">
+                            {{ form_widget(form.dateFin.day, {'attr':{'class':'form-control'}}) }}
+                            {{ form_widget(form.dateFin.month, {'attr':{'class':'form-control'}}) }}
+                            {{ form_widget(form.dateFin.year, {'attr':{'class':'form-control'}}) }}
+                        </div>
+                    </div>
+                    
                 </div>
 
-                <div class="form-group col-md-4">
-                        {{ form_label(form.couleur, 'Couleur sur le planning') }}
-                    <div class="d-flex">
-                        {{ form_widget(form.couleur, {'attr':{'class':'form-control'}}) }}
+                <div class="form-row ">
+
+                    <div class="form-group col-md-5">
+
+                        {{ form_label(form.diffusionDebut, "Plage de diffusion") }}
+                        <div class="d-flex">
+                        {# {{ form_label(form.diffusionDebut, 'Début') }} #}
+                            {{ form_widget(form.diffusionDebut.hour, {'attr':{'class':'form-control'}}) }}
+                            {{ form_widget(form.diffusionDebut.minute, {'attr':{'class':'form-control'}}) }}
+                        {# {{ form_label(form.diffusionFin, 'Fin') }} #}
+                            {{ form_widget(form.diffusionFin.hour, {'attr':{'class':'form-control'}}) }}   
+                            {{ form_widget(form.diffusionFin.minute, {'attr':{'class':'form-control'}}) }}     
+                        </div>
+                    </div>    
+
+                    <div class="form-group col-md-3">
+                        {{ form_label(form.dureeAffichage, "Durée d'Affichage") }}
+                        <div class="d-flex">
+                            {{ form_widget(form.dureeAffichage.hour, {'attr':{'class':'form-control'}}) }}
+                            {{ form_widget(form.dureeAffichage.minute, {'attr':{'class':'form-control'}}) }}
+                        </div>
                     </div>
+                
+
+                    <div class="form-group col-md-4">
+                        {{ form_label(form.recurrence, 'Récurrence personnalisée') }}</br>                                      
+                        {% for recurrenceCheckBox in form.recurrence %}
+                            <div class="form-check form-check-inline">
+                                {{ form_widget(recurrenceCheckBox, {'attr':{'class':'form-check-input'}}) }}
+                                {{ form_label(recurrenceCheckBox) }}
+                            </div>
+                        {% endfor %} 
+                    </div>                  
                 </div>
 
-                <div class="form-group col-md-4">                  
-                        {{ form_label(form.media, 'Fichier multimédia') }}
-                    <div class="d-flex">
-                        {{ form_widget(form.media, {'attr':{'class':'form-control'}}) }}
+                
+                <div class="form-row">
+
+                    <div class="form-group col-md-4">                
+                            {{ form_label(form.permission, 'Permission') }}
+                        <div class="d-flex">
+                            {{ form_widget(form.permission, {'attr':{'class':'form-control'}})}}
+                        </div>
                     </div>
+
+                    <div class="form-group col-md-4">
+                            {{ form_label(form.couleur, 'Couleur sur le planning') }}
+                        <div class="d-flex">
+                            {{ form_widget(form.couleur, {'attr':{'class':'form-control'}}) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">                  
+                            {{ form_label(form.media, 'Fichier multimédia') }}
+                        <div class="d-flex">
+                            {{ form_widget(form.media, {'attr':{'class':'form-control'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                        {{ form_label(form.details, 'Détails supplémentaires') }}
+                        {{ form_widget(form.details) }}
                 </div>
 
-            </div>
-            <div class="form-row border border-primary">
-                    {{ form_label(form.details, 'Détails supplémentaires') }}
-                    {{ form_widget(form.details) }}
-            </div>
+        <button type="submit" class="btn btn-dark m-2">Enregistrer</button>
+        <a href="{{ path('campagne_index') }}" class="btn btn-dark m-2">Abandonner</a>
 
-
-
-    
-    <button type="submit" class="btn btn-outline-light custom-color m-1">Enregistrer</button>
-    <a href="{{ path('campagne_index') }}" class="btn btn-outline-light custom-color m-1">Abandonner</a>
-
-    {{ form_end(form) }}
+        {{ form_end(form) }}
 </div>
 
 
