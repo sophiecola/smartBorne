@@ -22,13 +22,13 @@
   overflow-x: hidden;
 } */
 
-#sidebar-wrapper {
+/* #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;
-  /* -webkit-transition: margin .25s ease-out;
+  -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out; */
+  transition: margin .25s ease-out;
   background: #43425d !important;
 }
 
@@ -68,7 +68,7 @@
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
   }
-}
+} */
 
 .button-sidbar {
     background: #43425d;
@@ -80,7 +80,7 @@
   background: #43425d !important;
 }
 
-/*Start login style*/
+
 .login-page {
     width: 360px;
     padding: 8% 0 0;
@@ -108,19 +108,23 @@
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 7px;
   }
-  .form-create input {
+   .form-create select, .form-create input{
     font-family: "Roboto", sans-serif;
     background: #f2f2f2;
+    /* width: 80%; */
+    height: 50%;
     border: 0;
     border-radius: 10px;
+    font-size: 80%;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
-   .form-create select, .form-create textarea{
-    font-family: "Roboto", sans-serif;
-    background: #f2f2f2;
+  
+
+  .form-create textarea {
     border: 0;
     border-radius: 10px;
-    font-size: 14px;
+    background: #f2f2f2;
+    width: 100%;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
 
@@ -133,6 +137,7 @@
     margin: 0 0 15px;
     padding: 3px;
     font-size: 14px;
+    min-height: 2rem;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
   .form button {
@@ -195,7 +200,7 @@
   .container .info span .fa {
     color: #EF3B3A;
   } */
-/*End login style*/
+
 
 /*Start drop box*/
 .dropzone {

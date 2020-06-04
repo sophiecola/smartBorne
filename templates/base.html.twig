@@ -5,116 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
-
+        {% block stylesheets %}
         {# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> #}
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
-        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-        <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="{{ asset('/plugins/fontawesome-free/css/all.min.css') }}">
-          <!-- Theme style -->
-        <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css') }}">
-
-        <title>{% block title %}SmartBorne{% endblock %}</title>
-
-        {% block stylesheets %}{% endblock %}
 
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="{{ asset('/plugins/fontawesome-free/css/all.min.css') }}">
+
+          <!-- Theme style -->
+        <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css') }}">
+        {% endblock %}
+
+        <title>{% block title %}SmartBorne{% endblock %}</title>
     </head>
-    <body>
-
-    {# <div class="row">
-            <div class="col-2">
-                <nav id="sidebar" class="sidebar ">
-                    <div class="sidebar-header">
-                        <h1 class="h4 pt-2">ADMINISTRATEUR</h1>
-                    </div>
-            
-                    <ul class="list-unstyled">
-                        <li class="active">
-                            <a class="list-group-item list-group-item-action button-sidbar" href="{{ path('borne_index') }}">Bornes</a>
-                        </li>
-                        <li>
-                            <a class="list-group-item list-group-item-action button-sidbar" href="{{ path('campagne_index') }}">Campagnes</a>
-                        </li>
-                        <li>
-                            <a class="list-group-item list-group-item-action button-sidbar" href="{{ path('client_index') }}">Clients</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div> #}
-
-{# <div class="content">
-                    <nav class="navbar navbar-expand-lg navbar-light border-bottom"> 
-                        <a id="sidebarCollapse">
-                            <i class="fas fa-align-left"></i>
-                            <span class="btn btn-secondary">Réduire le menu</span>
-                        </a>
-                        <img src="#" alt="logo">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" role="button">
-                                    <i class="fas fa-user"></i><span class="p-1">prenom</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-info"
-                                    aria-labelledby="navbarDropdownProfile">
-                                    <a class="dropdown-item" href="{{ path('connexion_logout') }}"><i class="fas fa-sign-out-alt"></i><span class="p-1">Déconnexion</span></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav> 
-
-                {% block body %}{% endblock %}  
-                </div><!-- fermeture div content -->
-                         
-        </div> #}
-
-
-
-
-
-
-{# <div class="d-flex" id="wrapper"><!-- Sidebar --> 
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">ADMINISTRATEUR</div>
-        <div class="list-group list-group-flush">
-          <a class="list-group-item list-group-item-action button-sidbar" href="{{ path('borne_index') }}">Bornes</a>
-          <a class="list-group-item list-group-item-action button-sidbar" href="{{ path('campagne_index') }}">Campagnes</a>
-          <a class="list-group-item list-group-item-action button-sidbar" href="{{ path('client_index') }}">Clients</a>
-          <a class="list-group-item list-group-item-action button-sidbar" href="{{ path('user_index') }}">Utilisateurs</a>
-        </div>
-    </div><!-- /#sidebar-wrapper -->
-    
-    <div id="page-content-wrapper"><!-- Page Content -->
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom "><!-- Navigation -->
-                    <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
-
-                    <a id="sidebarCollapse">
-                            <i class="fas fa-align-left"></i>
-                            <span class="btn btn-outline-secondary">Menu</span>
-                    </a>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                    <i class="fas fa-user"></i><span class="p-1">User</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-info"
-                                    aria-labelledby="navbarDropdownProfile">
-                                    <a class="dropdown-item" href="{{ path('connexion_logout') }}"><i class="fas fa-sign-out-alt"></i><span class="p-1">Déconnexion</span></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-            </nav><!-- Navigation -->
-        {% block body %}{% endblock %} 
-    </div> <!-- /#page-content-wrapper -->
-</div> #}
-
-
+    <body class="hold-transition sidebar-mini">
 
 <div class="wrapper">
 
@@ -125,20 +33,32 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
+
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Home</a>
       </li>
     </ul>
-
-
+{# <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> #}
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <li class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <span class="d-block">Alexander</span>
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="brand-image img-circle elevation-3" alt="User Image">
+          <span class="badge badge-danger navbar-badge">toggle</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
         </div>
       </li>
       
@@ -149,7 +69,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary  custom-color elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="#" class="brand-link">
       <img src="{{ asset('images/logoSmartBorne.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Smart Borne</span>
@@ -206,7 +126,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            {# <h1 class="m-0 text-dark">Starter Page</h1> #}
+            {# {% block body %}{% endblock %}  #}
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -223,38 +143,27 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
+
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Text unutile Text unutile Text unutile
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2020 <span>Cefim-SmartBorne</span></strong>
-  </footer>
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Text unutile Text unutile Text unutile
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2020 <span>SmartBorne</span></strong>
+    </footer>
 </div>
 <!-- ./wrapper -->
 
+<!-- REQUIRED SCRIPTS -->
 
-
-
-
+        <!-- jQuery -->
         <script src="{{ asset('/plugins/jquery/jquery.min.js') }}"></script>
         <!-- Bootstrap 4 -->
         <script src="{{ asset('/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <!-- AdminLTE App -->
          <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
-
-
-    </body>
+</body>
 </html>
