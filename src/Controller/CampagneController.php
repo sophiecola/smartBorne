@@ -11,6 +11,7 @@ use App\Repository\MagasinCampagneRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CampagneController extends AbstractController
@@ -28,6 +29,8 @@ class CampagneController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
+     * 
      * @Route("/campagne/new", name="campagne_new")
      */
     public function create(Request $request, EntityManagerInterface $manager, MagasinCampagneRepository $magasinCampagneRepository) 
@@ -40,6 +43,7 @@ class CampagneController extends AbstractController
         $form->handleRequest($request);
     
         if ($form->isSubmitted() && $form->isValid()) {
+            // dd($request->get('clients'));
             $file = $campagne->getMedia();
             $fileName = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
             $file->move($this->getParameter('upload_directory'), $fileName);
@@ -73,6 +77,8 @@ class CampagneController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
+     * 
      * @Route("/campagne/delete/{id}", name="campagne_delete")
      */
     public function delete(Campagne $campagne, ObjectManager $manager) 

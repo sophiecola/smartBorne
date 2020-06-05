@@ -23,7 +23,7 @@ class CampagneRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('c')
             ->select('c as campagne')
-            ->join('c.magasinCampagnes', 'mc')
+            ->leftJoin('c.magasinCampagnes', 'mc')
             ->addSelect('mc.magasinName')
             ->orderBy('c.dateFin')
             ->getQuery()

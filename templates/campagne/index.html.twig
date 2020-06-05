@@ -6,6 +6,8 @@
 
 <div>
     <h1>Liste des campagnes</h1>
+
+    {% if app.user.role is same as('ROLE_ADMIN') %}
         <a href="{{ path('campagne_new') }}" class="btn btn-dark custom-color">Créer une campagne</a>
         <input type="text" value="rechercher">
         <label for="tri">TRIER PAR</label>
@@ -13,6 +15,7 @@
             <option value="DESC">Ordre décroissant</option>
             <option value="ASC">Ordre croissant</option>
         </select>
+    {% endif %}
 
 <table class="table table-striped mx-5">
     <thead>
@@ -37,10 +40,10 @@
                 <td>{{ campagne.dateFin|date("d/m/Y")}}</td>
                 <td>{{ campagne.CountBorne }}</td>
                 <td>{{ campagne.permission }}</td>
-                <td>
-                 
-                    <a href="#">trash</a>
-                <td>Détails</td>
+                {% if app.user.role is same as('ROLE_ADMIN') %}
+                <td><a href="#"><i class="fas fa-trash"></i></a></td>
+                {% endif %}
+                <td>Détails</>
             </tr>
         {% endfor %}
 

@@ -6,13 +6,14 @@
 
 <h1>Liste des bornes</h1>
 
-
+{% if app.user.role is same as('ROLE_ADMIN') %}
 <a class="btn btn-dark custom-color" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Ajouter une borne</a>
 <div class="collapse" id="collapseForm">
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
 </div>
+{% endif %}
 
 <input type="text" value="rechercher">
 <label for="tri">TRIER PAR</label>
