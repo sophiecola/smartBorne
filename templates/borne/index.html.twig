@@ -7,12 +7,32 @@
 <h1>Liste des bornes</h1>
 
 
+
 <a class="btn btn-dark custom-color" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Ajouter une borne</a>
-<div class="collapse" id="collapseForm">
+<div class="form-create collapse" id="collapseForm">
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <div class="form-group col-md-12">{{ form_row(form.numero_serie, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.id_borne, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.ip_borne, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.date_installation, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.details, {'attr':{'class':'form-control'}}) }}</div>
+            
+        </div>
+        <div class="form-group col-md-6">   
+            <div class="form-group col-md-12">{{ form_row(form.numero_rue, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.nom_rue, {'attr':{'class':'form-control'}}) }}</div>           
+            <div class="form-group col-md-12">{{ form_row(form.cp, {'attr':{'class':'form-control'}}) }}</div>                    
+            <div class="form-group col-md-12">{{ form_row(form.ville, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.site, {'attr':{'class':'form-control'}}) }}</div>
+            
+        </div>
+    </div>
     {{ form_end(form) }}
 </div>
+
+
 
 <input type="text" value="rechercher">
 <label for="tri">TRIER PAR</label>
