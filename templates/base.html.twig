@@ -5,21 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
-
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+
         <!-- Font Awesome Icons -->
         <link rel="stylesheet" href="{{ asset('/plugins/fontawesome-free/css/all.min.css') }}">
+
           <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css') }}">
+        {# {% endblock %} #}
 
         <title>{% block title %}SmartBorne{% endblock %}</title>
-
-        {% block stylesheets %}{% endblock %}
-
-        <!-- Google Font: Source Sans Pro -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-        
     </head>
     <body class="hold-transition sidebar-mini">
 
@@ -142,11 +138,12 @@
     
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2020 <span>Cefim-SmartBorne</span></strong>
+        <strong>Copyright &copy; 2020 <span>SmartBorne</span></strong>
     </footer>
 </div>
 <!-- ./wrapper -->
 
+<!-- REQUIRED SCRIPTS -->
 
     <script src="{{ asset('/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->

@@ -22,9 +22,6 @@ class BorneType extends AbstractType
             ->add('ville')
             ->add('site')
             ->add('details')
-            ->add('save', SubmitType::class, [
-                'attr' => ['class' => 'save']
-            ]);
         ;
     }
 

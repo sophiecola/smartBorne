@@ -9,13 +9,13 @@
 
     {% if app.user.role is same as('ROLE_ADMIN') %}
         <a href="{{ path('campagne_new') }}" class="btn btn-dark custom-color">Créer une campagne</a>
+    {% endif %}
         <input type="text" value="rechercher">
         <label for="tri">TRIER PAR</label>
         <select name="tri" id="tri">
             <option value="DESC">Ordre décroissant</option>
             <option value="ASC">Ordre croissant</option>
         </select>
-    {% endif %}
 
 <table class="table table-striped mx-5">
     <thead>

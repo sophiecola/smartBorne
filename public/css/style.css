@@ -1,74 +1,4 @@
-/* #sidebar {
-    min-width: 15rem;
-    max-width: 15rem;
-    min-height: 100vh;
-    background: #43425d;
-    color: #fff;
-    transition: all 0.5s;
-    position: fixed;
-    top:0;
-    left:0;
-}
 
-#sidebar.active {
-    margin-left: -15rem;
-}
-
-#navbar {
-    padding-left: 15rem;
-} */
-
-/* body {
-  overflow-x: hidden;
-} */
-
-#sidebar-wrapper {
-  min-height: 100vh;
-  margin-left: -15rem;
-  /* -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out; */
-  background: #43425d !important;
-}
-
-#sidebar-wrapper .sidebar-heading {
-  padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
-  color: #fff ;
-
-}
-
-#sidebar-wrapper .list-group {
-  width: 15rem;
-}
-
-#sidebar-wrapper.active {
-  margin-left: -15rem;
-}
-
-#page-content-wrapper {
-  min-width: 100vw;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-  margin-left: 0;
-}
-
-@media (min-width: 768px) {
-  #sidebar-wrapper {
-    margin-left: 0;
-  }
-
-  #page-content-wrapper {
-    min-width: 0;
-    width: 100%;
-  }
-
-  #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
-  }
-}
 
 .button-sidbar {
     background: #43425d;
@@ -80,7 +10,6 @@
   background: #43425d !important;
 }
 
-/*Start login style*/
 .login-page {
     width: 360px;
     padding: 8% 0 0;
@@ -106,21 +35,25 @@
     padding: 45px;
     text-align: left;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 7px;
+    border-radius: 10px;
   }
-  .form-create input {
+   .form-create select, .form-create input{
     font-family: "Roboto", sans-serif;
     background: #f2f2f2;
+    width: 80%;
+    /* height: 50%; */
     border: 0;
     border-radius: 10px;
+    font-size: 80%;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
-   .form-create select, .form-create textarea{
-    font-family: "Roboto", sans-serif;
-    background: #f2f2f2;
+  
+
+  .form-create textarea {
     border: 0;
     border-radius: 10px;
-    font-size: 14px;
+    background: #f2f2f2;
+    width: 100%;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
 
@@ -133,6 +66,7 @@
     margin: 0 0 15px;
     padding: 3px;
     font-size: 14px;
+    min-height: 2rem;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
   .form button {
@@ -150,52 +84,7 @@
     background: #43425d;
     opacity: 0.7;
   }
-  /* .form .message {
-    margin: 15px 0 0;
-    color: #b3b3b3;
-    font-size: 12px;
-  }
-  .form .message a {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  .form .register-form {
-    display: none;
-  } */
-  /* .container {
-    position: relative;
-    z-index: 1;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  .container:before, .container:after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-  .container .info {
-    margin: 50px auto;
-    text-align: center;
-  }
-  .container .info h1 {
-    margin: 0 0 15px;
-    padding: 0;
-    font-size: 36px;
-    font-weight: 300;
-    color: #1a1a1a;
-  }
-  .container .info span {
-    color: #4d4d4d;
-    font-size: 12px;
-  }
-  .container .info span a {
-    color: #000000;
-    text-decoration: none;
-  }
-  .container .info span .fa {
-    color: #EF3B3A;
-  } */
-/*End login style*/
+  
 
 /*Start drop box*/
 .dropzone {
