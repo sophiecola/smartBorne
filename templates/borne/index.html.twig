@@ -6,7 +6,9 @@
 
 <h1>Liste des bornes</h1>
 
-
+<pre>
+    {{ dump() }}
+</pre>
 
 <a class="btn btn-dark custom-color" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Ajouter une borne</a>
 <div class="form-create collapse" id="collapseForm">
@@ -29,6 +31,8 @@
             
         </div>
     </div>
+    <button type="submit" class="btn btn-dark custom-color m-2">Enregistrer</button>
+        <a href="{{ path('borne_index') }}" class="btn btn-dark custom-color m-2">Abandonner</a>
     {{ form_end(form) }}
 </div>
 
