@@ -6,10 +6,34 @@
 
 <h1>Clients</h1>
 
+
+    {{ dump() }}
+
+
 <a class="btn btn-dark custom-color" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseExample">Ajouter un client</a>
-<div class="collapse" id="collapseForm">
+<div class="container form-create collapse" id="collapseForm">
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+     <div class="form-row">
+        <div class="form-group col-md-6">
+            <div class="form-group col-md-12">{{ form_row(form.entreprise, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.referent, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.telephone, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.mail, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.date_debut, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.date_fin, {'attr':{'class':'form-control'}}) }}</div>
+            
+        </div>
+        <div class="form-group col-md-6">   
+            <div class="form-group col-md-12">{{ form_row(form.numero_rue, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.nom_rue, {'attr':{'class':'form-control'}}) }}</div>           
+            <div class="form-group col-md-12">{{ form_row(form.cp, {'attr':{'class':'form-control'}}) }}</div>                    
+            <div class="form-group col-md-12">{{ form_row(form.ville, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.details, {'attr':{'class':'form-control'}}) }}</div>
+            <div class="form-group col-md-12">{{ form_row(form.avatar, {'attr':{'class':'form-control'}}) }}</div>
+            
+        </div>
+    </div>
+    {# {{ form_widget(form) }} #}
     {{ form_end(form) }}
 </div>
 
